@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1576101022283" clover="3.2.0">
-  <project timestamp="1576101022283" name="All files">
+<coverage generated="1576102911605" clover="3.2.0">
+  <project timestamp="1576102911605" name="All files">
     <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10" elements="24" coveredelements="24" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
     <file name="recipes.js" path="/Users/Tess/alchemy/career-track/week-02/express-mongoose-relationships-lab/lib/routes/recipes.js">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
@@ -17,7 +17,7 @@
       <line num="30" count="1" type="stmt"/>
       <line num="32" count="1" type="stmt"/>
       <line num="36" count="1" type="stmt"/>
-      <line num="38" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

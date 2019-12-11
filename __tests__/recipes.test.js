@@ -151,8 +151,8 @@ describe('recipe routes', () => {
         'put dough on cookie sheet',
         'bake for 10 minutes'
       ],
+      events: []
     });
-
     return request(app)
       .delete(`/api/v1/recipes/${recipe._id}`)
       .then(res => {
