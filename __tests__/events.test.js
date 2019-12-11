@@ -99,20 +99,13 @@ describe('event routes', () => {
   });
 
   it('updates an event by id', async() => {
-    const event = await Event.create({
-      recipeId: '1234',
-      dateOfEvent: Date.now(),
-      notes: 'It went well',
-      rating: 4
-    });
-
     return request(app)
       .patch(`/api/v1/events/${event._id}`)
       .send({ rating: 5 })
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          recipeId: '1234',
+          recipeId: JSON.parse(JSON.stringify(recipe._id)),
           dateOfEvent: expect.any(String),
           notes: 'It went well',
           rating: 5,
@@ -122,19 +115,12 @@ describe('event routes', () => {
   });
 
   it('deletes an event by id', async() => {
-    const event = await Event.create({
-      recipeId: '1234',
-      dateOfEvent: Date.now(),
-      notes: 'It went well',
-      rating: 4
-    });
-
     return request(app)
       .delete(`/api/v1/events/${event._id}`)
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          recipeId: '1234',
+          recipeId: JSON.parse(JSON.stringify(recipe._id)),
           dateOfEvent: expect.any(String),
           notes: 'It went well',
           rating: 4,
