@@ -52,11 +52,33 @@ describe('recipe routes', () => {
       });
   });
 
+  it('gets all recipes with ingredient flour', async() => {
+    const recipes = await Recipe.create([{ 
+      name: 'cookies', 
+      ingredients: [{ 
+        name: 'flour', 
+        amount: 1, 
+        measurement: 'cup' 
+      }], 
+      directions: [] 
+    }]);
+    return request(app)
+      .get('/api/v1/recipes/?ingredient=flour')
+      .then(res => {
+        recipes.forEach(recipe => {
+          expect(res.body).toEqual([{
+            _id: recipe._id.toString(),
+            name: recipe.name
+          }]);
+        });
+      });
+  });
+
   it('gets all recipes', async() => {
     const recipes = await Recipe.create([
-      { name: 'cookies', directions: [] },
-      { name: 'cake', directions: [] },
-      { name: 'pie', directions: [] }
+      { name: 'cookies', ingredients: [], directions: [] },
+      { name: 'cake', ingredients: [], directions: [] },
+      { name: 'pie', ingredients: [], directions: [] }
     ]);
     return request(app)
       .get('/api/v1/recipes')
@@ -117,7 +139,6 @@ describe('recipe routes', () => {
         'bake for 10 minutes'
       ],
     });
-
     return request(app)
       .patch(`/api/v1/recipes/${recipe._id}`)
       .send({ name: 'good cookies' })
