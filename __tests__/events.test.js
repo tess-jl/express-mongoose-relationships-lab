@@ -69,12 +69,11 @@ describe('event routes', () => {
 
   it('gets all events', async() => {
     const events = await Event.create([
-      { recipeId: '1234', dateOfEvent: Date.now(), rating: 3 },
-      { recipeId: '3456', dateOfEvent: Date.now(), rating: 2 },
-      { recipeId: '2345', dateOfEvent: Date.now(), rating: 3 },
-      { recipeId: '6544', dateOfEvent: Date.now(), rating: 5 },
+      { recipeId: recipe._id, dateOfEvent: Date.now(), rating: 3 },
+      { recipeId: recipe._id, dateOfEvent: Date.now(), rating: 2 },
+      { recipeId: recipe._id, dateOfEvent: Date.now(), rating: 3 },
+      { recipeId: recipe._id, dateOfEvent: Date.now(), rating: 5 },
     ]);
-
     return request(app)
       .get('/api/v1/events')
       .then(res => {
