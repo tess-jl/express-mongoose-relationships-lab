@@ -58,7 +58,6 @@ describe('recipe routes', () => {
       { name: 'cake', directions: [] },
       { name: 'pie', directions: [] }
     ]);
-
     return request(app)
       .get('/api/v1/recipes')
       .then(res => {
@@ -84,7 +83,6 @@ describe('recipe routes', () => {
         'bake for 10 minutes'
       ],
     });
-
     return request(app)
       .get(`/api/v1/recipes/${recipe._id}`)
       .then(res => {
@@ -100,6 +98,7 @@ describe('recipe routes', () => {
             'put dough on cookie sheet',
             'bake for 10 minutes'
           ],
+          events: [],
           __v: 0
         });
       });
